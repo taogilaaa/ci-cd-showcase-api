@@ -1,0 +1,27 @@
+{
+  "name": "ci-cd-showcase-api",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/main.js",
+    "test-src": "jest --passWithNoTests",
+    "test-lint": "eslint ./src --max-warnings 0",
+    "test": "npm run test-lint && npm run test-src"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "express": "^4.16.4",
+    "graphql": "^14.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.7.1",
+    "prettier": "^1.17.0"
+  }
+}
