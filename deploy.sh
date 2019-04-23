@@ -49,7 +49,8 @@ do
     echo "Deployed: ${NOW_URL}"
 
     npx now alias --token=$NOW_SECRET $NOW_URL $DEPLOY_ALIAS
-    echo "Aliased: ${DEPLOY_ALIAS}.now.sh"
+    DEPLOY_DOMAIN=https://${DEPLOY_ALIAS}.now.sh
+    echo "Aliased: ${DEPLOY_DOMAIN}"
 
     if [ "$TRAVIS_PULL_REQUEST" != "false" ]
     then
@@ -57,7 +58,7 @@ do
       # Done so because every PR is an issue, and the issues api allows to post general comments,
       # while the PR api requires that comments are made to specific files and specific commits
       GITHUB_PR_COMMENTS=https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments
-      curl -H "Authorization: token ${GITHUB_API_TOKEN}" --request POST ${GITHUB_PR_COMMENTS} --data '{"body":"Travis automatic deployment: '${DEPLOY_ALIAS}', commit unique url: '${NOW_URL}'"}'
+      curl -H "Authorization: token ${GITHUB_API_TOKEN}" --request POST ${GITHUB_PR_COMMENTS} --data '{"body":"Travis automatic deployment: '${DEPLOY_DOMAIN}', commit unique url: '${NOW_URL}'"}'
     fi
   fi
 done
