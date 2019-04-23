@@ -58,7 +58,7 @@ do
       # Done so because every PR is an issue, and the issues api allows to post general comments,
       # while the PR api requires that comments are made to specific files and specific commits
       GITHUB_PR_COMMENTS=https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments
-      curl -H "Authorization: token ${GITHUB_API_TOKEN}" --request POST ${GITHUB_PR_COMMENTS} --data '{"body":"Travis automatic deployment: '${DEPLOY_DOMAIN}', commit unique url: '${NOW_URL}'"}'
+      curl -H "Authorization: token ${GITHUB_API_TOKEN}" --request POST ${GITHUB_PR_COMMENTS} --data '{"body":"Travis automatic deployment: '${DEPLOY_DOMAIN}' \n Commit unique url: '${NOW_URL}'"}'
     fi
   fi
 done
