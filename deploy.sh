@@ -48,8 +48,8 @@ do
     NOW_URL="$(npx now --public --token=$NOW_SECRET --no-clipboard)"
     echo "Deployed: ${NOW_URL}"
 
-    npx now alias --token=$NOW_TOKEN $NOW_URL $DEPLOY_ALIAS
-    echo "Aliased: ${DEPLOY_ALIAS}"
+    npx now alias --token=$NOW_SECRET $NOW_URL $DEPLOY_ALIAS
+    echo "Aliased: ${DEPLOY_ALIAS}.now.sh"
 
     if [ "$TRAVIS_PULL_REQUEST" != "false" ]
     then
